@@ -1,63 +1,33 @@
-
 <?php
 // index.php bicycle
 
 require 'Bicycle.php';
-$bike = new Bicycle('blue');
+require 'Car.php';
+require 'Truck.php';
 
-
-$bike->setCurrentSpeed(15);
-
-var_dump($bike);
-
-
-// Moving bike
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-
-
-// Instanciation d'un nouvel objet $rockrider
-$rockrider = new Bicycle('yellow');
-
-
-// Instanciation d'un nouvel objet $tornado
-$tornado = new Bicycle('black');
-
-
-$tornado->forward();
-
-var_dump($bike);
-
-echo '<br><br>';
+$bicycle = new Bicycle('blue', 1);
+echo $bicycle->forward();
 
 
 // index.php Car
 
-require 'Car.php';
 
-
-$car = new Car("red", 2, "electricity");
-
-$car->setCurrentSpeed(50);
-$car->setCurrentEnergyLevel(80);
-
-var_dump($car);
-
-
-// Moving car
-echo $car->start();
+$car = new Car('green', 4, 'electric');
 echo $car->forward();
-echo '<br> Niveau d\'énergie de la voiture : ' . $car->getCurrentEnergyLevel() . '%' . '<br>';
-echo $car->forward();
-echo '<br> Niveau d\'énergie de la voiture : ' . $car->getCurrentEnergyLevel() . '%' . '<br>';
-echo $car->brake();
 
-var_dump($car);
+// index.php Truck
+
+$truck = new Truck('red', 3, 35,'fuel');
+
+$truck->setCurrentSpeed(50);
+$truck->setNbWheels(8);
 
 
+var_dump($truck);
+
+        echo $truck->forward();
+        echo $truck->brake();
+        echo $truck->getLoad();
 
 
 ?>
